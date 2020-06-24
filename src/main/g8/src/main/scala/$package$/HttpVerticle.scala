@@ -11,7 +11,6 @@ class HttpVerticle extends ScalaVerticle {
 
   override def startFuture(): Future[_] = {
     //Create a router to answer GET-requests to "/hello" with "world"
-    BridgeOptions
     val router = Router.router(vertx)
     router
       .get("/hello")
