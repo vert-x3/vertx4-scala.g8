@@ -2,7 +2,7 @@ import sbt.Package._
 import sbt._
 import Docker.autoImport.exposedPorts
 
-scalaVersion := "2.13.1"
+scalaVersion := "2.13.2"
 
 enablePlugins(DockerPlugin)
 exposedPorts := Seq(8666)
