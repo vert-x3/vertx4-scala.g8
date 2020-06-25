@@ -1,27 +1,16 @@
 package $package$
 
-import org.scalatest.Matchers
+import io.vertx.scala.ext.web.client._
 
-import org.scalatest.Matchers
-
-import scala.concurrent.Promise
-import io.vertx.scala.core._
+import org.scalatest.matchers.should.Matchers
 
 class HttpVerticleSpec extends VerticleTesting[HttpVerticle] with Matchers {
 
   "HttpVerticle" should "bind to 8666 and answer with 'world'" in {
-    val promise = Promise[String]
-
     vertx.createHttpClient()
       .getNowFuture(8666, "127.0.0.1", "/hello")
-      .map(
-        r => {
-          r.exceptionHandler(promise.failure)
-          r.bodyHandler(b => promise.success(b.toString))
-        }
-      )
-
-    promise.future.map(res => res should equal("world"))
+      .flatMap(_.bodyFuture)
+      .map(_.toString("UTF-8") should equal("world"))
   }
 
 }

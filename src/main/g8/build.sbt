@@ -10,7 +10,8 @@ exposedPorts := Seq(8666)
 libraryDependencies ++= Vector (
   Library.vertx_lang_scala,
   Library.vertx_web,
-  Library.scalaTest       % "test",
+  Library.vertx_web_client  % "test",
+  Library.scalaTest         % "test",
   // Uncomment for clustering
   // Library.vertx_hazelcast,
 

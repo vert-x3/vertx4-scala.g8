@@ -3,7 +3,8 @@ package $package$
 import io.vertx.lang.scala.json.{Json, JsonObject}
 import io.vertx.lang.scala.{ScalaVerticle, VertxExecutionContext}
 import io.vertx.scala.core._
-import org.scalatest.{AsyncFlatSpec, BeforeAndAfter}
+import org.scalatest.BeforeAndAfter
+import org.scalatest.flatspec.AsyncFlatSpec
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
