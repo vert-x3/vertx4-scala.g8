@@ -14,6 +14,7 @@ import scala.util.{Failure, Success}
 abstract class VerticleTesting[A <: ScalaVerticle: TypeTag] extends AsyncFlatSpec with BeforeAndAfter{
   val vertx = Vertx.vertx()
   implicit val vertxExecutionContext = VertxExecutionContext(
+    vertx,
     vertx.getOrCreateContext()
   )
 
