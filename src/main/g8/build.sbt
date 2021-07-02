@@ -1,20 +1,17 @@
-import sbt.Package._
-import sbt._
-import Docker.autoImport.exposedPorts
+import sbt.Package.ManifestAttributes
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.6"
 
-enablePlugins(DockerPlugin)
-exposedPorts := Seq(8666)
+name := "hello-world"
+version := "1.0"
 
-libraryDependencies ++= Vector (
-  Library.vertx_lang_scala,
-  Library.vertx_web,
-  Library.scalaTest         % "test",
-  // Uncomment for clustering
-  // Library.vertx_hazelcast,
+val VertxVersion = "4.0.3-SNAPSHOT"
+resolvers += Resolver.mavenLocal
+libraryDependencies += "io.vertx" %% "vertx-lang-scala" % VertxVersion
+libraryDependencies += "io.vertx" %  "vertx-web"        % VertxVersion
+libraryDependencies += "io.vertx" %  "vertx-web-client" % VertxVersion
 
-)
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.2"
 
 packageOptions += ManifestAttributes(
   ("Main-Verticle", "scala:$package$.HttpVerticle"))

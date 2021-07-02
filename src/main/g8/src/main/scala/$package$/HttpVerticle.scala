@@ -1,8 +1,8 @@
 package $package$
 
 import io.vertx.lang.scala.ScalaVerticle
-import io.vertx.scala.ext.web._
-import io.vertx.scala.core._
+import io.vertx.lang.scala._
+import io.vertx.ext.web._
 
 import scala.concurrent.Future
 
@@ -19,6 +19,8 @@ class HttpVerticle extends ScalaVerticle {
     vertx
       .createHttpServer()
       .requestHandler(router)
-      .listenFuture(8666, "0.0.0.0")
+      .listen(8666, "0.0.0.0")
+      .asScala()
   }
 }
+

@@ -1,14 +1,16 @@
 package $package$
 
-import io.vertx.scala.core._
 import org.scalatest.matchers.should.Matchers
 
-class BusVerticleSpec extends VerticleTesting[BusVerticle] with Matchers {
+class HttpVerticleSpec extends VerticleTesting[HttpVerticle] with Matchers {
 
-  "BusVerticle" should "reply to a message" in {
-    val future = vertx.eventBus().requestFuture[String]("testAddress", Some("msg"))
-
-    future.map(res => res.body() should equal("Hello World!"))
+  "HttpVerticle" should "bind to 8666 and answer with 'world'" in {
+    val client = WebClient.create(vertx)
+    client.get(8666, "127.0.0.1", "/hello")
+      .send()
+      .asScala()
+      .map(_.body())
+      .map(_.toString("UTF-8") should equal("world"))
   }
 
 }
