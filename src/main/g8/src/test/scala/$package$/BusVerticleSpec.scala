@@ -1,6 +1,7 @@
 package $package$
 
 import org.scalatest.matchers.should.Matchers
+import io.vertx.lang.scala.testing.VerticleTesting
 
 class HttpVerticleSpec extends VerticleTesting[HttpVerticle] with Matchers {
 

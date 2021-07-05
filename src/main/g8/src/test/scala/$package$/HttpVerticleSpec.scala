@@ -3,6 +3,7 @@ package $package$
 import io.vertx.scala.ext.web.client._
 import io.vertx.ext.web.client.WebClient
 import io.vertx.lang.scala._
+import io.vertx.lang.scala.testing.VerticleTesting
 import org.scalatest.matchers.should.Matchers
 
 class HttpVerticleSpec extends VerticleTesting[HttpVerticle] with Matchers {
