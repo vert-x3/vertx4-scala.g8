@@ -12,7 +12,7 @@ class BusVerticle extends ScalaVerticle {
       .eventBus()
       .consumer[String]("testAddress")
       .handler(_.reply("Hello World!"))
-      .completionHandler(_ => promise.complete(Success((): Unit)))
+      .completionHandler(_ => promise.complete(Success(())))
   }
 
 }

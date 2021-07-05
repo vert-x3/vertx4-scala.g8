@@ -21,7 +21,7 @@ class HttpVerticle extends ScalaVerticle {
       .listen(8666, "0.0.0.0")
       .asScala()
       .onComplete{
-        case Success(_) => promise.complete(Success())
+        case Success(_) => promise.complete(Success(()))
         case Failure(e) => promise.complete(Failure(e))
       }
   }
