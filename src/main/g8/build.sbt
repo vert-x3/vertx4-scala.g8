@@ -5,7 +5,7 @@ scalaVersion := "2.13.6"
 name := "hello-world"
 version := "1.0"
 
-val VertxVersion = "4.0.3-SNAPSHOT"
+val VertxVersion = "4.2.0-SNAPSHOT"
 resolvers += Resolver.mavenLocal
 libraryDependencies += "io.vertx" %% "vertx-lang-scala"      % VertxVersion
 libraryDependencies += "io.vertx" %% "vertx-lang-scala-test" % VertxVersion
