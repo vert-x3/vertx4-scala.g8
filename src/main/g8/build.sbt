@@ -6,7 +6,9 @@ name := "hello-world"
 version := "1.0"
 
 val VertxVersion = "4.2.0-SNAPSHOT"
-resolvers += Resolver.mavenLocal
+
+resolvers += "Vert.x SNAAPSHOTS" at "https://s01.oss.sonatype.org/content/repositories/snapshots"
+
 libraryDependencies += "io.vertx" %% "vertx-lang-scala"      % VertxVersion
 libraryDependencies += "io.vertx" %% "vertx-lang-scala-test" % VertxVersion
 libraryDependencies += "io.vertx" %  "vertx-web"             % VertxVersion
